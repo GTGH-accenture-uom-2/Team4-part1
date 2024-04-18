@@ -53,8 +53,7 @@ public class Insured extends Person{
 
         Random random = new Random();
         int randomIndex = random.nextInt(vaccinationCenters.size());
-        VaccinationCenter selectedVaccinationCenter = vaccinationCenters.get(randomIndex);
-        return selectedVaccinationCenter;
+        return vaccinationCenters.get(randomIndex);
 
     }
 

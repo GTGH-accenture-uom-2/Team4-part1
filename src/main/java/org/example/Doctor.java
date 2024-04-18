@@ -1,5 +1,6 @@
 package org.example;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Doctor extends Person {
     private ArrayList<Timeslot> timeslots;
@@ -22,13 +23,13 @@ public class Doctor extends Person {
         this.vaccinationCenter = vaccinationCenter;
     }
 
-    public void getInformed(ArrayList<Reservation> reservations) {
-        for (Reservation rsv : reservations) {
-            System.out.println(rsv.toString());
-        }
+    public void getInformed(VaccinationCenter vaccCenter) {
+        reservations.stream()
+                .filter(x ->x.getVaccinationCenter().getCode().equals(vaccCenter.getCode()))
+                .sorted(Comparator.comparingInt(r -> r.getTimeslot().getDay()))
+                .forEach(System.out::println);
     }
 
-    //ana imera???
 
 
 public ArrayList<Vaccination> getVaccinations() {
