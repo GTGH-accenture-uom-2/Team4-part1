@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.Random;
 
 public class Insured extends Person{
     private String email;
@@ -38,9 +40,16 @@ public class Insured extends Person{
         this.birthdate = birthdate;
     }
 
-    public VaccinationCenter selectVacCenter{
+    public VaccinationCenter selectVacCenter (ArrayList<VaccinationCenter> vaccinationCenters){
         //ebala kai pedio VacCenter sta attributes
         //code goes here
+        System.out.println("Select Vaccination Center:");
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(vaccinationCenters.size());
+        VaccinationCenter selectedVaccinationCenter = vaccinationCenters.get(randomIndex);
+        return selectedVaccinationCenter;
+
     }
 
     public void print() {
@@ -49,11 +58,10 @@ public class Insured extends Person{
     }
 
     public Timeslot selectTimeslot(VaccinationCenter vacCenter){
-        //na ginei mia getTimeslot stin vaccenter??
         //την προσεγγισα με τετοιον τροπο ωστε να ειναι HasMap τα timeslots με boolen
         // που δειχνει αν ειναι κατηλλειμενο το timeslot
 
-        System.out.println("Παρακαλώ επιλέξτε έναν αριθμό από τον παρακάτω κατάλογο:");
+        System.out.println("Select a number:");
 
         int index = 1;
         for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslot().entrySet()) {

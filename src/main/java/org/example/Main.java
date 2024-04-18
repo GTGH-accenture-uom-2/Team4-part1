@@ -9,6 +9,7 @@ public class Main {
         vaccinationCenters.add(vacCenter1);
         vaccinationCenters.add(vacCenter2);
 
+
         //examples
         System.out.println("hi");
         Person person = new Person("Louiza", "Kositzidou", "1234567891011");
