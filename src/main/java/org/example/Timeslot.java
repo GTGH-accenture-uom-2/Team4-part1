@@ -103,8 +103,8 @@ public class Timeslot {
                 year == tmslt.year &&
                 hour == tmslt.hour&&
                 minutes == tmslt.minutes &&
-                isFree == tmslt.isFree &&
-                doc.equals(tmslt.doc);
+                isFree == tmslt.isFree;/* &&
+                doc.equals(tmslt.doc);*/
     }
 
     @Override
