@@ -58,23 +58,27 @@ public class Insured extends Person{
     }
 
     public Timeslot selectTimeslot(VaccinationCenter vacCenter){
-        //την προσεγγισα με τετοιον τροπο ωστε να ειναι HasMap τα timeslots με boolen
-        // που δειχνει αν ειναι κατηλλειμενο το timeslot
+        ArrayList<Timeslot> timeslotList = new ArrayList<Timeslot>(vacCenter.freeTimeslots());
 
-        System.out.println("Select a number:");
-
-        int index = 1;
-        for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslot().entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-            index++;
+        Random random = new Random();
+        int randomIndex = random.nextInt(timeslotList.size());
+        Timeslot selectedTimeslot = timeslotList.get(randomIndex);
+        return selectedTimeslot;
         }
 
-        int choice = scanner.nextInt();
+
+
+
+
+       // return selectedTimeslot;
+        /*int choice = scanner.nextInt();
 
         if (choice < 1 || choice > vacCenter.getTimeslot().size()) {
             System.out.println("Μη έγκυρη επιλογή.");
             return null;
         }
+        */
+         */
 
         //εκτυπωση πληροφοριων του timeslot που επελεξε, πλιζ χελπ!
     }
