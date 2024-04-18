@@ -3,20 +3,39 @@ import java.util.ArrayList;
 
 
 public class Doctor extends Person {
-    private ArrayList<Timeslot> Timeslots;
+    private ArrayList<Timeslot> timeslots;
+    private ArrayList<Reservation> reservations;
+    private VaccinationCenter vaccinationCenter;
+    public ArrayList<Vaccination> vaccinations;
 
     public Doctor(String name, String surname, String amka) {
         super(name, surname, amka);
-        Timeslots = new ArrayList<>();
+        timeslots = new ArrayList<>();
+    }
+
+    public VaccinationCenter getVaccinationCenter() {
+        return vaccinationCenter;
+    }
+
+    public void setVaccinationCenter(VaccinationCenter vaccinationCenter) {
+        this.vaccinationCenter = vaccinationCenter;
+    }
+
+    public ArrayList<Vaccination> getVaccinations() {
+        return vaccinations;
+    }
+
+    public void setVaccinations(ArrayList<Vaccination> vaccinations) {
+        this.vaccinations = vaccinations;
     }
 
     public void add_timeslot(timeslotObj) {
-        Timeslots.add(timeslotObj);
+        timeslots.add(timeslotObj);
     }
 
     public void printArrayList() {
         System.out.println("Printing ArrayList:");
-        for (timeslotObj obj : Timeslots) {
+        for (timeslotObj obj : timeslots) {
             System.out.println(obj); // Assuming MyObject has a meaningful toString() method
 
 
