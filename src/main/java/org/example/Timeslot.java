@@ -21,6 +21,9 @@ public class Timeslot {
         this.doc = doc;
     }
 
+    public Timeslot() {
+    }
+
     public int getDay() {
         return day;
     }
