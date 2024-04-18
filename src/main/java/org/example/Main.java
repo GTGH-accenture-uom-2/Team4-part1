@@ -51,7 +51,7 @@ public class Main {
         insuredpeople.add(new Insured("Cersei", "Lannister", "87632", "cersei@gmail.com",
                 "9864309", "1/4/1979"));
         insuredpeople.add(new Insured("Ned", "Stark", "875318", "ned@gmail.com",
-                "986752", "19/9/1976"));
+                "986752", "19/9/1968"));
 
 
 
