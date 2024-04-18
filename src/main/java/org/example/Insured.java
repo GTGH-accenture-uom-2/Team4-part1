@@ -67,6 +67,13 @@ public class Insured extends Person{
         return selectedTimeslot;
     }
 
+    public Reservation makeReservation(ArrayList<VaccinationCenter> vaccinationCenters){
+        VaccinationCenter selectedVaccCenter = this.selectVacCenter(vaccinationCenters);
+        Timeslot selectedTimeslot = this.selectTimeslot(selectedVaccCenter);
+
+        return new Reservation(this,selectedTimeslot,selectedVaccCenter);
+    }
+
 
 
 
