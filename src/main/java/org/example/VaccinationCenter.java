@@ -49,4 +49,9 @@ public class VaccinationCenter {
         return freeTimeslots;
     }
 
+    public boolean equals(VaccinationCenter vac){
+        return (code.equals(vac.code)&&
+                address.equals(vac.address));
+    }
+
 }
