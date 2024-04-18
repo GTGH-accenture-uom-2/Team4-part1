@@ -22,4 +22,9 @@ public class Doctor extends Person {
 
         }
     }
+
+    public boolean equals(Doctor doc){
+        return this.getAmka().equals(doc.getAmka());
+
+    }
 }
