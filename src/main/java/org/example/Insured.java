@@ -74,19 +74,4 @@ public class Insured extends Person{
         return new Reservation(this,selectedTimeslot,selectedVaccCenter);
     }
 
-
-
-
-
-       // return selectedTimeslot;
-        /*int choice = scanner.nextInt();
-
-        if (choice < 1 || choice > vacCenter.getTimeslot().size()) {
-            System.out.println("Μη έγκυρη επιλογή.");
-            return null;
-        }
-        */
-
-
-        //εκτυπωση πληροφοριων του timeslot που επελεξε, πλιζ χελπ!
 }
