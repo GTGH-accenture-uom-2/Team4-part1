@@ -1,8 +1,12 @@
 package org.example;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Insured extends Person{
     private String email;
@@ -82,11 +86,21 @@ public class Insured extends Person{
         for (Timeslot timeslot : timeslots)
             if (timeslot.equals(initTimeslot))
                 timeslot.setFree(true);
-
     }
 
     public Reservation changeReservation(Reservation reservation,ArrayList<VaccinationCenter> vaccinationCenters){
         this.deleteReservation(reservation);
         return (this.makeReservation(vaccinationCenters));
+    }
+
+    public Vaccination getVaccinated(Reservation reservation, Doctor doctor) {
+        int day = reservation.getTimeslot().getDay();
+        int month = reservation.getTimeslot().getMonth();
+        int year = reservation.getTimeslot().getYear();
+        String vaccinationDate = IntStream.of(day, month, year).mapToObj(String::valueOf).collect(Collectors.joining("/"));
+
+        Vaccination completedVaccination = new Vaccination(this,doctor,vaccinationDate);
+
+        return completedVaccination;
     }
 }
