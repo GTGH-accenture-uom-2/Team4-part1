@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 public class Main {
     public static void main(String[] args) {
         //Create arraylist of doctors
@@ -35,25 +37,25 @@ public class Main {
 
         //create arraylist of timeslots for VacCenter2
         ArrayList<Timeslot> timeslots2 = new ArrayList<>();
-        timeslots1.add(new Timeslot(10, 4, 2024, 9, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 9, 0,
                 9, 30, doc3));
-        timeslots1.add(new Timeslot(10, 4, 2024, 10, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 10, 0,
                 10, 30, doc4));
-        timeslots1.add(new Timeslot(10, 4, 2024, 11, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 11, 0,
                 9, 30, doc3));
-        timeslots1.add(new Timeslot(10, 4, 2024, 12, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 12, 0,
                 10, 30, doc4));
-        timeslots1.add(new Timeslot(10, 4, 2024, 13, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 13, 0,
                 9, 30, doc3));
-        timeslots1.add(new Timeslot(10, 4, 2024, 14, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 14, 0,
                 10, 30, doc4));
-        timeslots1.add(new Timeslot(10, 4, 2024, 15, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 15, 0,
                 9, 30, doc3));
-        timeslots1.add(new Timeslot(10, 4, 2024, 16, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 16, 0,
                 10, 30, doc4));
-        timeslots1.add(new Timeslot(10, 4, 2024, 17, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 17, 0,
                 9, 30, doc3));
-        timeslots1.add(new Timeslot(10, 4, 2024, 18, 0,
+        timeslots2.add(new Timeslot(10, 4, 2024, 18, 0,
                 10, 30, doc4));
 
         //create arraylist of VacCenters
@@ -88,23 +90,35 @@ public class Main {
         insuredpeople.add(new Insured("Ned", "Stark", "875318", "ned@gmail.com",
                 "986752", "19/9/1976"));
 
+        // Shuffle the list to get random ordering
+        Collections.shuffle(insuredpeople);
 
         //make reservation for 8 insured people
-        Reservation reservation1 = insuredpeople.get(0).makeReservation(vaccinationCenters);        insuredpeople.get(3).makeReservation(vaccinationCenters);
-        insuredpeople.get(4).makeReservation(vaccinationCenters);
-        insuredpeople.get(5).makeReservation(vaccinationCenters);
-        insuredpeople.get(7).makeReservation(vaccinationCenters);
-        insuredpeople.get(8).makeReservation(vaccinationCenters);
-        insuredpeople.get(9).makeReservation(vaccinationCenters);
-        insuredpeople.get(11).makeReservation(vaccinationCenters);
+        //prepei na ftiaxtei o elegxos gia to an apo randoms select vaccCenter na min dialegete panta 1.
+        for (int i = 0; i < 8; i++){
+        //make reservation
+        Reservation reservation = insuredpeople.get(i).makeReservation(vaccinationCenters);
+        Doctor doctor = reservation.findDoctor(doctors);
+        doctor.addReservation(reservation);
+        }
+
+        //Make vaccination
+        //Na min 3exaso avrio na valo oti emvoliazontai oi 6 apo tous 8
+        for (Doctor doctor:doctors){
+            for (Reservation res:doctor.getReservations()){
+                //den xreiazetai mallon na epistrefei
+                Vaccination VaccObj =res.getInsured().getVaccinated(res,doctor);
+            }
+
+        }
 
         //vaccinate 6 insured people, perimenw na apofasisoume methodous stin getvaccinated
-        insuredpeople.get(0).getVaccinated(reservation1,doc1);
+        /*insuredpeople.get(0).getVaccinated(reservation1,doc1);
         insuredpeople.get(3).getVaccinated();
         insuredpeople.get(4).getVaccinated();
         insuredpeople.get(8).getVaccinated();
         insuredpeople.get(9).getVaccinated();
-        insuredpeople.get(11).getVaccinated();
+        insuredpeople.get(11).getVaccinated(); */
 
         //print next reservation
         //afou ginei o emvoliasmos na eleftherwnwtai i xroniki thirida opote emfanizw apla ta timeslots me

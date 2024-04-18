@@ -31,29 +31,35 @@ public class Doctor extends Person {
     //ana imera???
 
 
-public ArrayList<Vaccination> getVaccinations() {
-    return vaccinations;
-}
+    public ArrayList<Timeslot> getTimeslots() {
+        return timeslots;
+    }
 
-public void setVaccinations(ArrayList<Vaccination> vaccinations) {
-    this.vaccinations = vaccinations;
-}
+    public ArrayList<Vaccination> getVaccinations() {
+        return vaccinations;
+    }
 
-public void addTimeslot(Timeslot timeslot) {
-    timeslots.add(timeslot);
-}
-public void addReservation(Reservation reservation) {
-    reservations.add(reservation);
-}
+    public void setVaccinations(ArrayList<Vaccination> vaccinations) {
+        this.vaccinations = vaccinations;
+    }
 
-public void addVaccination(Vaccination vaccination) {
-    vaccinations.add(vaccination);
-}
+    public void addTimeslot(Timeslot timeslot) {
+        timeslots.add(timeslot);
+    }
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
+    }
 
-public boolean equals(Doctor doc){
-    return this.getAmka().equals(doc.getAmka());
+    public void addVaccination(Vaccination vaccination) {
+        vaccinations.add(vaccination);
+    }
 
-}
+    public boolean equals(Doctor doc){
+        return this.getAmka().equals(doc.getAmka());
 
+    }
 
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
 }
