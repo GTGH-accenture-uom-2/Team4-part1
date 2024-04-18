@@ -20,6 +20,13 @@ public class Doctor extends Person {
     public void setVaccinationCenter(VaccinationCenter vaccinationCenter) {
         this.vaccinationCenter = vaccinationCenter;
     }
+    public void getInformed(ArrayList<Reservation> reservations){
+        for (Reservation rsv : reservations) {
+            System.out.println(rsv.toString());
+        }
+    }
+    //ana imera???
+}
 
     public ArrayList<Vaccination> getVaccinations() {
         return vaccinations;
