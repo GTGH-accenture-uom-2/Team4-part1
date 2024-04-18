@@ -97,6 +97,16 @@ public class Timeslot {
         isFree = free;
     }
 
+    public boolean equals(Timeslot tmslt){
+        return day == tmslt.day &&
+                month == tmslt.month &&
+                year == tmslt.year &&
+                hour == tmslt.hour&&
+                minutes == tmslt.minutes &&
+                isFree == tmslt.isFree &&
+                doc.equals(tmslt.doc);
+    }
+
     @Override
     public String toString() {
         return "Timeslot{" +

@@ -23,6 +23,10 @@ public class Reservation {
         this.insured = insured;
     }
 
+    public VaccinationCenter getVaccinationCenter() {
+        return vaccinationCenter;
+    }
+
     public Timeslot getTimeslot() {
         return timeslot;
     }
@@ -35,4 +39,6 @@ public class Reservation {
         return "Reservation: " + "insured: " +insured.getName() + " " +insured.getSurname()
                 +" ,timeslot: " +timeslot + " ,vaccinationCenter: " + vaccinationCenter.getCode();
     }
+
+
 }

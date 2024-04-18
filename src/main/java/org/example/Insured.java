@@ -74,4 +74,19 @@ public class Insured extends Person{
         return new Reservation(this,selectedTimeslot,selectedVaccCenter);
     }
 
+    public void deleteReservation(Reservation reservation) {
+
+        // Delete the initial reservation
+        Timeslot initTimeslot = reservation.getTimeslot(); //arxiko Timeslot
+        ArrayList<Timeslot> timeslots = reservation.getVaccinationCenter().getTimeslots();
+        for (Timeslot timeslot : timeslots)
+            if (timeslot.equals(initTimeslot))
+                timeslot.setFree(true);
+
+    }
+
+    public Reservation changeReservation(Reservation reservation,ArrayList<VaccinationCenter> vaccinationCenters){
+        this.deleteReservation(reservation);
+        return (this.makeReservation(vaccinationCenters));
+    }
 }
