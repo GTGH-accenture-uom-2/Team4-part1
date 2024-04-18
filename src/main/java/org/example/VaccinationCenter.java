@@ -28,4 +28,8 @@ public class VaccinationCenter {
     public String getCode() {
         return code;
     }
+
+    public ArrayList<Timeslot> getTimeslots() {
+        return Timeslots;
+    }
 }
