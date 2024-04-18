@@ -1,6 +1,6 @@
 package org.example;
 
-public class Person {
+public abstract class Person {
     private String name;
     private String surname;
     private String amka;
@@ -32,5 +32,14 @@ public class Person {
     }
     public void printInfo() {
         System.out.println("Name:" + name+ ", "+ "Surname:"+ surname + ", " + "Amka:" + amka);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "Name='" + name + '\'' +
+                ", Surname='" + surname + '\'' +
+                ", AMKA='" + amka + '\'' +
+                '}';
     }
 }
