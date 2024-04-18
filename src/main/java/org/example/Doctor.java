@@ -22,6 +22,13 @@ public class Doctor extends Person {
 
         }
     }
+    public void getInformed(ArrayList<Reservation> reservations){
+        for (Reservation rsv : reservations) {
+            System.out.println(rsv.toString());
+        }
+    }
+    //ana imera???
+}
 
     public boolean equals(Doctor doc){
         return this.getAmka().equals(doc.getAmka());
