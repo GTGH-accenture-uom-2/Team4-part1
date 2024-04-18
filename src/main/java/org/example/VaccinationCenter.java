@@ -11,6 +11,7 @@ public class VaccinationCenter {
         this.code = code;
         this.address = address;
         Timeslots = new ArrayList<>();
+
     }
 
     public void setAddress(String address) {
@@ -31,5 +32,20 @@ public class VaccinationCenter {
 
     public ArrayList<Timeslot> getTimeslots() {
         return Timeslots;
+    }
+
+    /*public void addTimeslot(Timeslot timeslot){
+        Timeslots.add(timeslot);
+    }*/
+    public ArrayList<Timeslot> freeTimeslots(){
+        ArrayList<Timeslot> freeTimeslots = new ArrayList<>();
+        for(Timeslot timeslot:Timeslots){
+            if(timeslot.isFree()){
+                freeTimeslots.add(timeslot);
+
+            }
+
+        }
+        return freeTimeslots;
     }
 }
