@@ -64,18 +64,31 @@ public class Insured extends Person{
         System.out.println("Select a number:");
 
         int index = 1;
-        for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslot().entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-            index++;
+        for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslots().entrySet()) {
+            if (entry.getValue()==false) {
+                System.out.println(entry.getKey());
+                index++;
+            }
         }
 
         int choice = scanner.nextInt();
 
-        if (choice < 1 || choice > vacCenter.getTimeslot().size()) {
+        if (choice < 1 || choice > vacCenter.getTimeslots().size()) {
             System.out.println("Μη έγκυρη επιλογή.");
             return null;
+        } else{
+            int index2 = 1;
+            for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslots().entrySet()) {
+                if (index == choice) {
+                    Timeslot selectedTimeslot = entry.getKey();
+                        return selectedTimeslot;
+                    }
+                index2++;
+            }
         }
-
         //εκτυπωση πληροφοριων του timeslot που επελεξε, πλιζ χελπ!
     }
 }
+
+
+//εκτυπωση πληροφοριων του timeslot που επελεξε, πλιζ χελπ!
