@@ -3,30 +3,65 @@ package org.example;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
+        //Create arraylist of doctors
         ArrayList<Doctor> doctors = new ArrayList<>();
         Doctor doc1 = new Doctor("maria", "k", "8754");
         Doctor doc2 = new Doctor("kwstas", "k", "8753");
         Doctor doc3 = new Doctor("dimitra", "k", "98674");
         Doctor doc4 = new Doctor("giwrgos", "k", "8764");
 
+        //create arraylist of timeslots for VacCenter1
         ArrayList<Timeslot> timeslots1 = new ArrayList<>();
         timeslots1.add(new Timeslot(10, 4, 2024, 9, 0,
-                9, 30, doc1);
+                9, 30, doc1));
         timeslots1.add(new Timeslot(10, 4, 2024, 10, 0,
-                10, 30, doc2);
+                10, 30, doc2));
+        timeslots1.add(new Timeslot(10, 4, 2024, 11, 0,
+                9, 30, doc1));
+        timeslots1.add(new Timeslot(10, 4, 2024, 12, 0,
+                10, 30, doc2));
+        timeslots1.add(new Timeslot(10, 4, 2024, 13, 0,
+                9, 30, doc1));
+        timeslots1.add(new Timeslot(10, 4, 2024, 14, 0,
+                10, 30, doc2));
+        timeslots1.add(new Timeslot(10, 4, 2024, 15, 0,
+                9, 30, doc1));
+        timeslots1.add(new Timeslot(10, 4, 2024, 16, 0,
+                10, 30, doc2));
+        timeslots1.add(new Timeslot(10, 4, 2024, 17, 0,
+                9, 30, doc1));
+        timeslots1.add(new Timeslot(10, 4, 2024, 18, 0,
+                10, 30, doc2));
 
-
+        //create arraylist of timeslots for VacCenter2
         ArrayList<Timeslot> timeslots2 = new ArrayList<>();
-        timeslots2.add(new Timeslot(11, 4, 2024, 9, 30,
-                10, 0, doc3);
-        timeslots2.add(new Timeslot(11, 4, 2024, 11, 0,
-                11, 30, doc4);
+        timeslots1.add(new Timeslot(10, 4, 2024, 9, 0,
+                9, 30, doc3));
+        timeslots1.add(new Timeslot(10, 4, 2024, 10, 0,
+                10, 30, doc4));
+        timeslots1.add(new Timeslot(10, 4, 2024, 11, 0,
+                9, 30, doc3));
+        timeslots1.add(new Timeslot(10, 4, 2024, 12, 0,
+                10, 30, doc4));
+        timeslots1.add(new Timeslot(10, 4, 2024, 13, 0,
+                9, 30, doc3));
+        timeslots1.add(new Timeslot(10, 4, 2024, 14, 0,
+                10, 30, doc4));
+        timeslots1.add(new Timeslot(10, 4, 2024, 15, 0,
+                9, 30, doc3));
+        timeslots1.add(new Timeslot(10, 4, 2024, 16, 0,
+                10, 30, doc4));
+        timeslots1.add(new Timeslot(10, 4, 2024, 17, 0,
+                9, 30, doc3));
+        timeslots1.add(new Timeslot(10, 4, 2024, 18, 0,
+                10, 30, doc4));
 
+        //create arraylist of VacCenters
         ArrayList<VaccinationCenter> vaccinationCenters = new ArrayList<>();
         vaccinationCenters.add(new VaccinationCenter("123", "casterly rock"), timeslots1);
         vaccinationCenters.add(new VaccinationCenter("456", "storm's end"), timeslots2);
 
-
+        //create arraylist of insures people
         ArrayList<Insured> insuredpeople = new ArrayList<>();
         insuredpeople.add(new Insured("Petyr", "Baelish", "128975439", "petyr@gmail.com",
                 "673537", "11/03/1975"));
@@ -54,8 +89,35 @@ public class Main {
                 "986752", "19/9/1976"));
 
 
+        //make reservation for 8 insured people
+        insuredpeople.get(0).makeReservation(vaccinationCenters);
+        insuredpeople.get(3).makeReservation(vaccinationCenters);
+        insuredpeople.get(4).makeReservation(vaccinationCenters);
+        insuredpeople.get(5).makeReservation(vaccinationCenters);
+        insuredpeople.get(7).makeReservation(vaccinationCenters);
+        insuredpeople.get(8).makeReservation(vaccinationCenters);
+        insuredpeople.get(9).makeReservation(vaccinationCenters);
+        insuredpeople.get(11).makeReservation(vaccinationCenters);
 
+        //vaccinate 6 insured people, perimenw na apofasisoume methodous stin getvaccinated
+        insuredpeople.get(0).getVaccinated();
+        insuredpeople.get(3).getVaccinated();
+        insuredpeople.get(4).getVaccinated();
+        insuredpeople.get(8).getVaccinated();
+        insuredpeople.get(9).getVaccinated();
+        insuredpeople.get(11).getVaccinated();
 
+        //print next reservation
+        //afou ginei o emvoliasmos na eleftherwnwtai i xroniki thirida opote emfanizw apla ta timeslots me
+        // pedio is free false
+
+        //print free timeslots
+        //afou ginei o emvoliasmos na eleftherwnwtai i xroniki thirida opote emfanizw apla ta timeslots me
+        // pedio is free true
+
+        //print vaccination for each doctor
+
+        ////print people up to 60 that has not made reservation
 
 
 
