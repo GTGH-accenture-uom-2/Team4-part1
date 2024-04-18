@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ public class Insured extends Person{
     private String email;
     private String afm;
     private String birthdate;
-    private VaccinationCenter vacCenter;
+    private Vaccination vaccination;
+    //private VaccinationCenter vacCenter;
 
     public Insured () { }
     public Insured(String name, String surname, String amka, String email, String afm, String birthdate) {
@@ -103,4 +105,18 @@ public class Insured extends Person{
 
         return completedVaccination;
     }
+
+    public void hasVaccinationCoverage(){
+        LocalDate currentDate = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate expirationDate = LocalDate.parse(vaccination.getExpirationDate(), formatter);
+
+        if(currentDate.isAfter(expirationDate))
+            System.out.println("Your vaccination has expired!");
+        else
+            System.out.println("You have an active vaccination");
+
+    }
+
 }
