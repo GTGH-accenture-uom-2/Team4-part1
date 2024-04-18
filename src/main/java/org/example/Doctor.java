@@ -29,19 +29,17 @@ public class Doctor extends Person {
         this.vaccinations = vaccinations;
     }
 
-    public void add_timeslot(timeslotObj) {
-        timeslots.add(timeslotObj);
+    public void addTimeslot(Timeslot timeslot) {
+        timeslots.add(timeslot);
+    }
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
     }
 
-    public void printArrayList() {
-        System.out.println("Printing ArrayList:");
-        for (timeslotObj obj : timeslots) {
-            System.out.println(obj); // Assuming MyObject has a meaningful toString() method
-
-
-        }
+    public void addVaccination(Vaccination vaccination) {
+        vaccinations.add(vaccination);
     }
-
+    
     public boolean equals(Doctor doc){
         return this.getAmka().equals(doc.getAmka());
 
