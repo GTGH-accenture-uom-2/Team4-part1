@@ -1,6 +1,7 @@
 package org.example;
 
 public class Timeslot {
+    private boolean isFree;
     private int day;
     private int month;
     private int year;
@@ -86,6 +87,14 @@ public class Timeslot {
 
     public void setDoc(Doctor doc) {
         this.doc = doc;
+    }
+
+    public boolean isFree() {
+        return isFree;
+    }
+
+    public void setFree(boolean free) {
+        isFree = free;
     }
 
     @Override

@@ -63,8 +63,9 @@ public class Insured extends Person{
         Random random = new Random();
         int randomIndex = random.nextInt(timeslotList.size());
         Timeslot selectedTimeslot = timeslotList.get(randomIndex);
+        selectedTimeslot.setFree(false);
         return selectedTimeslot;
-        }
+    }
 
 
 
@@ -78,8 +79,7 @@ public class Insured extends Person{
             return null;
         }
         */
-         */
+
 
         //εκτυπωση πληροφοριων του timeslot που επελεξε, πλιζ χελπ!
-    }
 }
