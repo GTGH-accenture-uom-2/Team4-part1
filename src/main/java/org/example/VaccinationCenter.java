@@ -14,6 +14,12 @@ public class VaccinationCenter {
 
     }
 
+    public VaccinationCenter(String code, String address, ArrayList<Timeslot> timeslots) {
+        this.code = code;
+        this.address = address;
+        Timeslots = timeslots;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }

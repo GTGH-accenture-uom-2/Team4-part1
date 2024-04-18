@@ -58,8 +58,8 @@ public class Main {
 
         //create arraylist of VacCenters
         ArrayList<VaccinationCenter> vaccinationCenters = new ArrayList<>();
-        vaccinationCenters.add(new VaccinationCenter("123", "casterly rock"), timeslots1);
-        vaccinationCenters.add(new VaccinationCenter("456", "storm's end"), timeslots2);
+        vaccinationCenters.add(new VaccinationCenter("123", "casterly rock", timeslots1));
+        vaccinationCenters.add(new VaccinationCenter("456", "storm's end", timeslots2));
 
         //create arraylist of insures people
         ArrayList<Insured> insuredpeople = new ArrayList<>();
@@ -90,8 +90,7 @@ public class Main {
 
 
         //make reservation for 8 insured people
-        insuredpeople.get(0).makeReservation(vaccinationCenters);
-        insuredpeople.get(3).makeReservation(vaccinationCenters);
+        Reservation reservation1 = insuredpeople.get(0).makeReservation(vaccinationCenters);        insuredpeople.get(3).makeReservation(vaccinationCenters);
         insuredpeople.get(4).makeReservation(vaccinationCenters);
         insuredpeople.get(5).makeReservation(vaccinationCenters);
         insuredpeople.get(7).makeReservation(vaccinationCenters);
@@ -100,7 +99,7 @@ public class Main {
         insuredpeople.get(11).makeReservation(vaccinationCenters);
 
         //vaccinate 6 insured people, perimenw na apofasisoume methodous stin getvaccinated
-        insuredpeople.get(0).getVaccinated();
+        insuredpeople.get(0).getVaccinated(reservation1,doc1);
         insuredpeople.get(3).getVaccinated();
         insuredpeople.get(4).getVaccinated();
         insuredpeople.get(8).getVaccinated();
