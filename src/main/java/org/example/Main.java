@@ -63,6 +63,26 @@ public class Main {
         vaccinationCenters.add(new VaccinationCenter("123", "casterly rock", timeslots1));
         vaccinationCenters.add(new VaccinationCenter("456", "storm's end", timeslots2));
 
+
+        //Set vaccination center to doctors
+        doc1.setVaccinationCenter(vaccinationCenters.get(0));
+        doc2.setVaccinationCenter(vaccinationCenters.get(0));
+        doc3.setVaccinationCenter(vaccinationCenters.get(1));
+        doc4.setVaccinationCenter(vaccinationCenters.get(1));
+
+        //add timeslots to doctors
+        for(int i=0;i<10;i++){
+            if(i<5){
+                doc1.addTimeslot(timeslots1.get(i));
+                doc3.addTimeslot(timeslots2.get(i));
+            }
+            else{
+                doc2.addTimeslot(timeslots2.get(i));
+                doc4.addTimeslot(timeslots2.get(i));
+            }
+
+        }
+
         //create arraylist of insures people
         ArrayList<Insured> insuredpeople = new ArrayList<>();
         insuredpeople.add(new Insured("Petyr", "Baelish", "128975439", "petyr@gmail.com",
@@ -142,13 +162,9 @@ public class Main {
         }
 
         //Ασφαλισμένοι >60 που δεν έχουν κλείσει ραντεβού
-
-
-
-
-
-
-
+        for(VaccinationCenter vaccCenter:vaccinationCenters){
+            vaccCenter.printInsuredWithoutReservation(insuredpeople);
+        }
 
     }
 }

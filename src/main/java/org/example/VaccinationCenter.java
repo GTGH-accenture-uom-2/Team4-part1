@@ -17,6 +17,7 @@ public class VaccinationCenter {
         reservations = new ArrayList<>();
     }
 
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -100,7 +101,7 @@ public class VaccinationCenter {
                     break;
                 }
                 else{
-                    notReservationInsured.add(insured)
+                    notReservationInsured.add(insured);
                 }
 
             }
@@ -108,7 +109,19 @@ public class VaccinationCenter {
         return notReservationInsured;
     }
 
-    public void 
+    public void printInsuredWithoutReservation(ArrayList<Insured> insuredNoRes){
+        ArrayList <Insured> notReservationInsured = this.findInsuredWithoutReservation(insuredNoRes);
+        System.out.println("Insured over 60 without reservation");
+        System.out.println("");
+        System.out.println("");
+        for(Insured insured:notReservationInsured){
+            if(Integer.parseInt(insured.getBirthdate())>60){
+                System.out.println("------------");
+                insured.print();
+                System.out.println("");
+            }
+        }
+    }
 
 
 }
