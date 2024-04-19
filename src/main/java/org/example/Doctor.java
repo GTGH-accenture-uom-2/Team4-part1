@@ -63,4 +63,13 @@ public class Doctor extends Person {
     public ArrayList<Reservation> getReservations() {
         return reservations;
     }
+
+    public void printVaccinations(){
+        System.out.println("-------------");
+        System.out.println("");
+        for(Reservation reservation:reservations){
+            System.out.println(reservation);
+            System.out.println("");
+        }
+    }
 }

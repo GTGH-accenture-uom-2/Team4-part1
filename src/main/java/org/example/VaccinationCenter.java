@@ -6,18 +6,15 @@ public class VaccinationCenter {
     private String code;
     private String address;
     private ArrayList<Timeslot> Timeslots;
+    private ArrayList<Reservation> reservations;
 
-    public VaccinationCenter(String code,String address){
-        this.code = code;
-        this.address = address;
-        Timeslots = new ArrayList<>();
 
-    }
 
     public VaccinationCenter(String code, String address, ArrayList<Timeslot> timeslots) {
         this.code = code;
         this.address = address;
         Timeslots = timeslots;
+        reservations = new ArrayList<>();
     }
 
     public void setAddress(String address) {
@@ -40,9 +37,10 @@ public class VaccinationCenter {
         return Timeslots;
     }
 
-    /*public void addTimeslot(Timeslot timeslot){
-        Timeslots.add(timeslot);
-    }*/
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
+
     public ArrayList<Timeslot> freeTimeslots(){
         ArrayList<Timeslot> freeTimeslots = new ArrayList<>();
         for(Timeslot timeslot:Timeslots){
@@ -55,9 +53,62 @@ public class VaccinationCenter {
         return freeTimeslots;
     }
 
+    public ArrayList<Timeslot> notFreeTimeslots(){
+        ArrayList<Timeslot> notFreeTimeslots = new ArrayList<>();
+        for(Timeslot timeslot:Timeslots){
+            if(!timeslot.isFree()){
+                notFreeTimeslots.add(timeslot);
+
+            }
+
+        }
+        return notFreeTimeslots;
+    }
+
     public boolean equals(VaccinationCenter vac){
         return (code.equals(vac.code)&&
                 address.equals(vac.address));
     }
+
+    public void printUpcomingReservations(){
+        System.out.println("-----Upcoming date----");
+        System.out.println("");
+        for(Reservation reservation:reservations){
+            System.out.println(reservation);
+            System.out.println("");
+        }
+    }
+
+    public void printFreeTimeslots(){
+        ArrayList<Timeslot> freeTimeslots = this.freeTimeslots();
+        System.out.println("-----Upcoming date----");
+        System.out.println("");
+        for(Timeslot tmslt:freeTimeslots){
+            System.out.println(tmslt);
+            System.out.println("");
+        }
+    }
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
+    }
+
+    public ArrayList<Insured> findInsuredWithoutReservation(ArrayList<Insured> insuredNoRes){
+        ArrayList <Insured> notReservationInsured = new ArrayList<>();
+        for(Insured insured:insuredNoRes){
+            for(Reservation reservation:reservations){
+                if (insured.equals(reservation.getInsured())){
+                    break;
+                }
+                else{
+                    notReservationInsured.add(insured)
+                }
+
+            }
+        }
+        return notReservationInsured;
+    }
+
+    public void 
+
 
 }
