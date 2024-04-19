@@ -57,6 +57,17 @@ public class Vaccination {
         expirationDate =  expirationDateNotFormatted.format(formatter);
     }
 
+    public String toString() {
+        return "Vaccination{" +
+                "insured=" + insured +
+                ", doctor=" + doctor +
+                ", vaccinationDate='" + vaccinationDate + '\'' +
+                ", expirationDate='" + expirationDate + '\'' +
+                '}';
+    }
+
+
+
 
     //εαν το vaccinationDate το παιρνω απο την Timeslot θα αλλαξω το get
     //και θα σβησω το set

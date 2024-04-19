@@ -96,41 +96,56 @@ public class Main {
         //make reservation for 8 insured people
         //prepei na ftiaxtei o elegxos gia to an apo randoms select vaccCenter na min dialegete panta 1.
         for (int i = 0; i < 8; i++){
-        //make reservation
         Reservation reservation = insuredpeople.get(i).makeReservation(vaccinationCenters);
+        VaccinationCenter VacCenter = reservation.getVaccinationCenter();
+        VacCenter.addReservation(reservation);
         Doctor doctor = reservation.findDoctor(doctors);
         doctor.addReservation(reservation);
         }
 
+        int count = 0;
         //Make vaccination
         //Na min 3exaso avrio na valo oti emvoliazontai oi 6 apo tous 8
         for (Doctor doctor:doctors){
             for (Reservation res:doctor.getReservations()){
                 //den xreiazetai mallon na epistrefei
                 Vaccination VaccObj =res.getInsured().getVaccinated(res,doctor);
+                doctor.addVaccination(VaccObj);
+                count=count+1;
+                if (count >=6) {
+                    break; // Breaks out of the inner loop
+                }
+
+            }
+            if (count >= 6) {
+                break; // Breaks out of the outer loop
             }
 
         }
 
-        //vaccinate 6 insured people, perimenw na apofasisoume methodous stin getvaccinated
-        /*insuredpeople.get(0).getVaccinated(reservation1,doc1);
-        insuredpeople.get(3).getVaccinated();
-        insuredpeople.get(4).getVaccinated();
-        insuredpeople.get(8).getVaccinated();
-        insuredpeople.get(9).getVaccinated();
-        insuredpeople.get(11).getVaccinated(); */
 
-        //print next reservation
-        //afou ginei o emvoliasmos na eleftherwnwtai i xroniki thirida opote emfanizw apla ta timeslots me
-        // pedio is free false
 
-        //print free timeslots
-        //afou ginei o emvoliasmos na eleftherwnwtai i xroniki thirida opote emfanizw apla ta timeslots me
-        // pedio is free true
+        //Επικείμενα ραντεβου για κάθε εμβολιαστικό
+        for(VaccinationCenter vacCenter:vaccinationCenters){
+            vacCenter.printUpcomingReservations();
+        }
 
-        //print vaccination for each doctor
 
-        ////print people up to 60 that has not made reservation
+        //Ελέυθερες χρονικές θυρίδες κάθε εμβολιαστικού
+        for(VaccinationCenter vacCenter:vaccinationCenters){
+            vacCenter.printFreeTimeslots();
+        }
+
+        //Εμβολιασμούς κάθε γιατρός για όλους τους γιατρούς
+        for (Doctor doctor:doctors){
+            doctor.printVaccinations();
+        }
+
+        //Ασφαλισμένοι >60 που δεν έχουν κλείσει ραντεβού
+
+
+
+
 
 
 
