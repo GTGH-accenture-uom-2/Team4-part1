@@ -2,6 +2,7 @@ package org.example;
 
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Map;
@@ -63,7 +64,7 @@ public class Insured extends Person{
     }
 
     public Timeslot selectTimeslot(VaccinationCenter vacCenter){
-        ArrayList<Timeslot> timeslotList = new ArrayList<Timeslot>(vacCenter.freeTimeslots());
+        ArrayList<Timeslot> timeslotList = new ArrayList<Timeslot>(vacCenter.getFreeTimeslots(vacCenter.getTimeslots()));
 
         Random random = new Random();
         int randomIndex = random.nextInt(timeslotList.size());
@@ -116,6 +117,22 @@ public class Insured extends Person{
         else
             System.out.println("You have an active vaccination");
 
+    }
+
+    public int birthdateToAge(String birthdate){
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birthDate = LocalDate.parse(birthdate, formatter);
+
+        LocalDate currentDate = LocalDate.now();
+        Period period = Period.between(birthDate, currentDate);
+
+        int age = period.getYears();
+        return age;
+    }
+
+    public boolean equals (Insured insured){
+        return this.getAmka().equals(insured.getAmka());
     }
 
 

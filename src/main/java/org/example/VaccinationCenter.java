@@ -55,6 +55,7 @@ public class VaccinationCenter {
         return notFreeTimeslots;
     }
 
+
     public boolean equals(VaccinationCenter vac){
         return (code.equals(vac.code)&&
                 address.equals(vac.address));
@@ -74,11 +75,25 @@ public class VaccinationCenter {
         timeslots.stream().filter(x -> x.isFree()).forEach(System.out::println);
     }
 
+    public ArrayList<Timeslot> getFreeTimeslots(ArrayList<Timeslot> timeslots){
+        return (ArrayList<Timeslot>) timeslots.stream().filter(x -> x.isFree()).toList();
+    }
+
 
     public void addReservation(Reservation reservation) {
         reservations.add(reservation);
     }
 
+    public void printInsuredWithNoReservation(ArrayList<Insured>insureds){
+        insureds.stream().filter(x->x.birthdateToAge(x.getBirthdate())>60).
+                filter(x->reservations.stream()
+                        .noneMatch(reservation -> reservation.getInsured().equals(x)))
+                .forEach(System.out::println);
+
+    }
+
+
+    /*
     public ArrayList<Insured> findInsuredWithoutReservation(ArrayList<Insured> insuredNoRes){
         ArrayList <Insured> notReservationInsured = new ArrayList<>();
         for(Insured insured:insuredNoRes){
@@ -108,6 +123,8 @@ public class VaccinationCenter {
             }
         }
     }
+
+     */
 
 
 }
