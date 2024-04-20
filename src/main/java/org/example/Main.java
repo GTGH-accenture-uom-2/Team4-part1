@@ -86,29 +86,29 @@ public class Main {
         //create arraylist of insures people
         ArrayList<Insured> insuredpeople = new ArrayList<>();
         insuredpeople.add(new Insured("Petyr", "Baelish", "128975439", "petyr@gmail.com",
-                "673537", "11/03/1975"));
+                "673537", "11/03/1935"));
         insuredpeople.add(new Insured("Lord", "Varys", "373598", "lord@gmail.com",
                 "846338", "17/03/1972"));
         insuredpeople.add(new Insured("Theon", "Greyjoy", "83635", "theon@gmail.com",
-                "83625", "7/08/1973"));
+                "83625", "7/08/1945"));
         insuredpeople.add(new Insured("Sandor", "Clegane", "823627", "sandor@gmail.com",
-                "927156", "5/12/1976"));
+                "927156", "5/12/1988"));
         insuredpeople.add(new Insured("Brienne", "of Tarth", "987534", "brienne@gmail.com",
-                "82615", "15/12/1972"));
+                "82615", "15/12/1999"));
         insuredpeople.add(new Insured("Arya", "Stark", "765439", "arya@gmail.com",
-                "76754", "10/1/1978"));
+                "76754", "10/1/2010"));
         insuredpeople.add(new Insured("Sansa", "Stark", "6535978", "sansa@gmail.com",
-                "787530", "8/11/1973"));
+                "787530", "8/11/2011"));
         insuredpeople.add(new Insured("Jon", "Snow", "898674", "jon@gmail.com",
-                "876430", "18/4/1972"));
+                "876430", "18/4/1980"));
         insuredpeople.add(new Insured("Daenerys", "Targaryen", "875643", "daeneys@gmail.com",
-                "998764", "1/5/1974"));
+                "998764", "1/5/1989"));
         insuredpeople.add(new Insured("Tyrion", "Lannister", "7635234", "tyrion@gmail.com",
                 "926254", "10/7/1970"));
         insuredpeople.add(new Insured("Cersei", "Lannister", "87632", "cersei@gmail.com",
-                "9864309", "1/4/1979"));
+                "9864309", "1/4/1943"));
         insuredpeople.add(new Insured("Ned", "Stark", "875318", "ned@gmail.com",
-                "986752", "19/9/1976"));
+                "986752", "19/9/1969"));
 
         // Shuffle the list to get random ordering
         Collections.shuffle(insuredpeople);
@@ -152,9 +152,8 @@ public class Main {
 
 
         //Ελέυθερες χρονικές θυρίδες κάθε εμβολιαστικού
-        for(VaccinationCenter vacCenter:vaccinationCenters){
-            vacCenter.printFreeTimeslots();
-        }
+        vaccinationCenters.get(0).printFreeTimeslot(timeslots1);
+        vaccinationCenters.get(1).printFreeTimeslot(timeslots2);
 
         //Εμβολιασμούς κάθε γιατρός για όλους τους γιατρούς
         for (Doctor doctor:doctors){

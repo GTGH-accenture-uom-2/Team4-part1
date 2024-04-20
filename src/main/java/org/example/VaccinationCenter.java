@@ -42,17 +42,6 @@ public class VaccinationCenter {
         return reservations;
     }
 
-    public ArrayList<Timeslot> freeTimeslots(){
-        ArrayList<Timeslot> freeTimeslots = new ArrayList<>();
-        for(Timeslot timeslot:Timeslots){
-            if(timeslot.isFree()){
-                freeTimeslots.add(timeslot);
-
-            }
-
-        }
-        return freeTimeslots;
-    }
 
     public ArrayList<Timeslot> notFreeTimeslots(){
         ArrayList<Timeslot> notFreeTimeslots = new ArrayList<>();
@@ -80,15 +69,12 @@ public class VaccinationCenter {
         }
     }
 
-    public void printFreeTimeslots(){
-        ArrayList<Timeslot> freeTimeslots = this.freeTimeslots();
+    public void printFreeTimeslot(ArrayList<Timeslot> timeslots) {
         System.out.println("-----Upcoming date----");
-        System.out.println("");
-        for(Timeslot tmslt:freeTimeslots){
-            System.out.println(tmslt);
-            System.out.println("");
-        }
+        timeslots.stream().filter(x -> x.isFree()).forEach(System.out::println);
     }
+
+
     public void addReservation(Reservation reservation) {
         reservations.add(reservation);
     }
