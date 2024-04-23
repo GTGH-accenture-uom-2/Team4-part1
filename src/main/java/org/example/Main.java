@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 public class Main {
     public static void main(String[] args) {
         //Create arraylist of doctors
@@ -76,11 +75,12 @@ public class Main {
         doc4.setVaccinationCenter(vaccinationCenters.get(1));
 
         //add timeslots to doctors
-        for (int i = 0; i < 10; i++) {
-            if (i < 5) {
+        for(int i=0;i<10;i++){
+            if(i<5){
                 doc1.addTimeslot(timeslots1.get(i));
                 doc3.addTimeslot(timeslots2.get(i));
-            } else {
+            }
+            else{
                 doc2.addTimeslot(timeslots2.get(i));
                 doc4.addTimeslot(timeslots2.get(i));
             }
@@ -114,42 +114,29 @@ public class Main {
         insuredpeople.add(new Insured("Ned", "Stark", "875318", "ned@gmail.com",
                 "986752", "19/9/1969"));
 
-
-        //create Arraylist of appointments
-        ArrayList<Reservation> reservations = new ArrayList<>();
-        reservations.add(new Reservation(insuredpeople.get(0), timeslots1.get(1)));
-        reservations.add(new Reservation(insuredpeople.get(3), timeslots2.get(4)));
-        reservations.add(new Reservation(insuredpeople.get(4), timeslots1.get(7)));
-        reservations.add(new Reservation(insuredpeople.get(6), timeslots2.get(8)));
-        reservations.add(new Reservation(insuredpeople.get(7), timeslots1.get(2)));
-        reservations.add(new Reservation(insuredpeople.get(10), timeslots2.get(3)));
-        reservations.add(new Reservation(insuredpeople.get(11), timeslots1.get(9)));
-        reservations.add(new Reservation(insuredpeople.get(9), timeslots2.get(1)));
-        printToFile(reservations);
-
         // Shuffle the list to get random ordering
         Collections.shuffle(insuredpeople);
 
         //make reservation for 8 insured people
         //prepei na ftiaxtei o elegxos gia to an apo randoms select vaccCenter na min dialegete panta 1.
-        for (int i = 0; i < 8; i++) {
-            Reservation reservation = insuredpeople.get(i).makeReservation(vaccinationCenters);
-            VaccinationCenter VacCenter = reservation.getVaccinationCenter();
-            VacCenter.addReservation(reservation);
-            Doctor doctor = reservation.findDoctor(doctors);
-            doctor.addReservation(reservation);
+        for (int i = 0; i < 8; i++){
+        Reservation reservation = insuredpeople.get(i).makeReservation(vaccinationCenters);
+        VaccinationCenter VacCenter = reservation.getVaccinationCenter();
+        VacCenter.addReservation(reservation);
+        Doctor doctor = reservation.findDoctor(doctors);
+        doctor.addReservation(reservation);
         }
 
         int count = 0;
         //Make vaccination
         //Na min 3exaso avrio na valo oti emvoliazontai oi 6 apo tous 8
-        for (Doctor doctor : doctors) {
-            for (Reservation res : doctor.getReservations()) {
+        for (Doctor doctor:doctors){
+            for (Reservation res:doctor.getReservations()){
                 //den xreiazetai mallon na epistrefei
-                Vaccination VaccObj = res.getInsured().getVaccinated(res, doctor);
+                Vaccination VaccObj =res.getInsured().getVaccinated(res,doctor);
                 doctor.addVaccination(VaccObj);
-                count = count + 1;
-                if (count >= 6) {
+                count=count+1;
+                if (count >=6) {
                     break; // Breaks out of the inner loop
                 }
 
@@ -161,8 +148,9 @@ public class Main {
         }
 
 
+
         //Επικείμενα ραντεβου για κάθε εμβολιαστικό
-        for (VaccinationCenter vacCenter : vaccinationCenters) {
+        for(VaccinationCenter vacCenter:vaccinationCenters){
             vacCenter.printUpcomingReservations();
         }
 
@@ -172,15 +160,25 @@ public class Main {
         vaccinationCenters.get(1).printFreeTimeslot(timeslots2);
 
         //Εμβολιασμούς κάθε γιατρός για όλους τους γιατρούς
-        for (Doctor doctor : doctors) {
+        for (Doctor doctor:doctors){
             doctor.printVaccinations();
         }
 
-        //Ασφαλισμένοι >60 που δεν έχουν κλείσει ραντεβού
-        /*for (VaccinationCenter vaccCenter : vaccinationCenters) {
+        /*//Ασφαλισμένοι >60 που δεν έχουν κλείσει ραντεβού
+        for(VaccinationCenter vaccCenter:vaccinationCenters){
             vaccCenter.printInsuredWithoutReservation(insuredpeople);
         }*/
-
+        /*//create second Arraylist of appointments na to sizitisoume
+        ArrayList<Reservation> reservations = new ArrayList<>();
+        reservations.add(new Reservation(insuredpeople.get(0), timeslots1.get(1)));
+        reservations.add(new Reservation(insuredpeople.get(3), timeslots2.get(4)));
+        reservations.add(new Reservation(insuredpeople.get(4), timeslots1.get(7)));
+        reservations.add(new Reservation(insuredpeople.get(6), timeslots2.get(8)));
+        reservations.add(new Reservation(insuredpeople.get(7), timeslots1.get(2)));
+        reservations.add(new Reservation(insuredpeople.get(10), timeslots2.get(3)));
+        reservations.add(new Reservation(insuredpeople.get(11), timeslots1.get(9)));
+        reservations.add(new Reservation(insuredpeople.get(9), timeslots2.get(1)));
+        printToFile(reservations);*/
 
     }
 
