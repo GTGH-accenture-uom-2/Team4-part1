@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -135,6 +136,56 @@ public class Insured extends Person{
         return this.getAmka().equals(insured.getAmka());
     }
 
+
+
+        /*2η υλοποιηση με hasmap(δεν υλοποιηθηκε σε όλη την εφαρμογη αλλα σε καποια κομματια μονο, πιθανως λειπουν διαφορα
+    public Timeslot selectTimeslot2(VaccinationCenter vacCenter){
+        System.out.println("Παρακαλώ επιλέξτε έναν αριθμό από τον παρακάτω κατάλογο:");
+        int index = 1;
+        for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslots2().entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+            index++;
+        }
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        scanner.close();
+
+        if (choice < 1 || choice > vacCenter.getTimeslots().size()) {
+            System.out.println("Μη έγκυρη επιλογή.");
+            return null;
+        }
+
+        Timeslot selectedTimeslot = null;
+        int count = 1;
+        for (Map.Entry<Timeslot, Boolean> entry : vacCenter.getTimeslots2().entrySet()) {
+            if (count == choice)
+                selectedTimeslot = entry.getKey();
+            count++;
+        }
+        System.out.println("Επιλέχθηκε το Timeslot: " + selectedTimeslot);
+
+        return selectedTimeslot;
+    }
+
+
+    public Reservation makeReservation2(ArrayList<VaccinationCenter> vaccinationCenters) {
+        VaccinationCenter selectedVaccCenter = this.selectVacCenter(vaccinationCenters);
+        Timeslot selectedTimeslot = this.selectTimeslot(selectedVaccCenter);
+
+        // ειναι διαθεσιμο?
+        if (selectedVaccCenter.getTimeslots2().get(selectedTimeslot) != null &&
+                selectedVaccCenter.getTimeslots2().get(selectedTimeslot)) {
+            // το κανουμε μη διαθεσιμο
+            selectedVaccCenter.getTimeslots2().put(selectedTimeslot, false);
+
+            // Κανω reservation
+            Reservation reservation = new Reservation(this, selectedTimeslot, selectedVaccCenter);
+            return reservation;
+        } else {
+            System.out.println("Το επιλεγμένο Timeslot δεν είναι διαθέσιμο.");
+            return null;
+        }
+    }*/
 
 
 }
