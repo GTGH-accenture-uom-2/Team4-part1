@@ -1,13 +1,15 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class VaccinationCenter {
     private String code;
     private String address;
     private ArrayList<Timeslot> Timeslots;
     private ArrayList<Reservation> reservations;
-
+    //private Map<Timeslot, Boolean> timeslots2 = new HashMap<>();//για την δευτερη υλοποιηση με hasmap
 
 
     public VaccinationCenter(String code, String address, ArrayList<Timeslot> timeslots) {
@@ -125,6 +127,10 @@ public class VaccinationCenter {
     }
 
      */
+    /* για την δευτερη υλοποιηση με hasmap
+    public Map<Timeslot, Boolean> getTimeslots2() {
+        return timeslots2;
+    }*/
 
 
 }
